@@ -254,7 +254,6 @@ router.post("/search", authMiddleware, async (req, res) => {
     const data = await Video.find({
       $or: [{ title: { $regex: new RegExp(searchNoSpecialChar, "i") } }],
     });
-    console.log(data);
     res.render("search", { data, searchTerm });
   } catch (error) {
     console.error("Search ", error);
