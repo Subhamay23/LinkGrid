@@ -1,0 +1,43 @@
+<section class="form-section">
+  <div class="form-main-container pad">
+    <h1>Update Video</h1>
+    <form
+      action="/api/video/update/<%= video._id %>?_method=PUT"
+      class="auth-form"
+      method="post"
+      autocomplete="off"
+      onsubmit="disableSubmitButton()"
+    >
+      <div class="form-input-container">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          value="<%- video.title  %>"
+          required
+        />
+      </div>
+      <div class="form-input-container">
+        <input
+          type="url"
+          name="url"
+          id="url"
+          value="<%- video.url  %>"
+          placeholder="Url"
+          required
+        />
+      </div>
+      <div class="form-input-container">
+        <button type="submit" id="submit-button">Save</button>
+      </div>
+    </form>
+  </div>
+</section>
+<script>
+  function disableSubmitButton() {
+    const submitButton = document.getElementById("submit-button");
+    submitButton.disabled = true;
+    submitButton.textContent = "Updating...";
+  }
+</script>

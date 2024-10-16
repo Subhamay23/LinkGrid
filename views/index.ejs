@@ -1,0 +1,32 @@
+<section class="upper-layout">
+  <form class="index-form" method="post" action="/search" role="search">
+    <input
+      type="search"
+      name="search"
+      id="search"
+      aria-label="search"
+      placeholder="Start typing...."
+    />
+    <button>Search</button>
+  </form>
+  <div class="upper-layer-container">
+    <a href="/create" class="upper-layer-btn-container">Add Link</a>
+  </div>
+</section>
+<section>
+  <% if(data==''){ %>
+  <div class="index-message-container">
+    <h1>Not Found!</h1>
+    <a href="/create">Add Link</a>
+  </div>
+  <% }else{ %>
+  <div class="line-grid">
+    <% data.forEach((elem,index) => { %>
+    <a href="/video/<%- elem._id %>" class="homepage-link">
+      <span><%- index+1 %> . </span>
+      <span><%- elem.title %></span>
+    </a>
+    <% }); %>
+  </div>
+  <% } %>
+</section>

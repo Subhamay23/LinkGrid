@@ -1,0 +1,43 @@
+<section class="form-section">
+  <div class="form-main-container pad">
+    <h1>Login to LinkGrid</h1>
+    <form
+      action="/auth/login"
+      method="post"
+      class="auth-form"
+      onsubmit="disableSubmitButton()"
+    >
+      <div class="form-input-container">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="username"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-input-container">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-input-container">
+        <button type="submit" id="submit-button">Login</button>
+      </div>
+    </form>
+    <a href="/register" class="form-redirect-link">Go to Register page</a>
+  </div>
+</section>
+<script>
+  function disableSubmitButton() {
+    const submitButton = document.getElementById("submit-button");
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+  }
+</script>

@@ -1,0 +1,42 @@
+<section class="form-section">
+  <div class="form-main-container pad">
+    <h1>Add Video</h1>
+    <form
+      action="/add/link"
+      class="auth-form"
+      method="post"
+      onsubmit="disableSubmitButton()"
+    >
+      <div class="form-input-container">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-input-container">
+        <input
+          type="url"
+          name="url"
+          id="url"
+          placeholder="Url"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-input-container">
+        <button type="submit" id="submit-button">Add</button>
+      </div>
+    </form>
+  </div>
+</section>
+<script>
+  function disableSubmitButton() {
+    const submitButton = document.getElementById("submit-button");
+    submitButton.disabled = true;
+    submitButton.textContent = "Adding...";
+  }
+</script>

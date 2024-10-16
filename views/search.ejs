@@ -1,0 +1,31 @@
+<section>
+  <form class="index-form" method="post" action="/search" role="search">
+    <input
+      type="search"
+      name="search"
+      id="search"
+      aria-label="search"
+      placeholder="Start typing...."
+    />
+    <button>Search</button>
+  </form>
+</section>
+<section>
+  <div class="result-container">
+    <p>Search result : <span class="result"><%-searchTerm%></span></p>
+  </div>
+  <% if(data==[]){ %>
+  <div class="index-message-container">
+    <h1>Not Found!</h1>
+  </div>
+  <% }else{ %>
+  <div class="line-grid">
+    <% data.forEach((elem,index) => { %>
+    <a href="/video/<%- elem._id %>" class="homepage-link">
+      <span><%- index+1 %> . </span>
+      <span><%- elem.title %></span>
+    </a>
+    <% }); %>
+  </div>
+  <% } %>
+</section>
